@@ -74,6 +74,47 @@ function sapXep() {
     document.querySelector("#sapXep").innerHTML = `Mảng sau khi sắp xếp là: ${array}`;
 }
 
+function kiemTraSNT(n){
+    var flag = true;
+ 
+    if (n < 2){
+        flag = false;
+    }
+    else if (n == 2){
+        flag = true;
+    }
+    else if (n % 2 == 0){
+      flag = false;
+    }
+    else{
+        for (var i = 3; i < n-1; i+=2)
+        {
+            if (n % i == 0){
+                flag = false;
+                break;
+            }
+        }
+    }
+
+    return flag;
+}
+
 function timSoNguyenTo() {
-    
+    for (var i = 0; i < array.length; i++) {
+        if (kiemTraSNT(array[i]) == true){
+            document.getElementById('soNguyenTo').innerHTML = `
+            <div>
+            <p>Số nguyên tố đầu tiên là ${array[i]}</p>
+            </div>
+            `;
+            break;
+        }
+        else{
+            document.getElementById('soNguyenTo').innerHTML = `
+            <div>
+            <p>Mảng không chứa số nguyên tố nào</p>
+            </div>
+            `;
+        }
+    }
 }
