@@ -118,3 +118,62 @@ function timSoNguyenTo() {
         }
     }
 }
+
+var array2 = [];
+document.querySelector("#array2").innerHTML = array2;
+
+function themSo() {
+    var soNguyen = +document.querySelector("#soNguyen").value;
+    array2.push(soNguyen);
+    console.log(array2);
+    document.querySelector("#array2").innerHTML = array2;
+}
+
+function demSoNguyen() {
+    var count = 0;
+    for (var i = 0; i < array2.length; i++){
+        if (Number.isInteger(array2[i]) == true){
+            count++;
+        }
+    }
+    document.querySelector("#demSoNguyen").innerHTML = `
+    <div>
+    <p>Số nguyên: ${count}</p>
+    </div>
+    `;
+}
+
+function soSanh() {
+    var soDuong = 0;
+    var soAm = 0;
+     for (var i = 0; i < array.length; i++) {
+        if (array[i] > 0) {
+            soDuong++;
+        }
+        else if (array[i] < 0) {
+            soAm++;
+        }
+     }
+
+     if (soDuong > soAm) {
+        document.querySelector("#soSanh").innerHTML = `
+        <div>
+        <p>Số dương > Số âm</p>
+        </div>
+        `;
+     }
+     else if (soAm > soDuong) {
+        document.querySelector("#soSanh").innerHTML = `
+        <div>
+        <p>Số dương < Số âm</p>
+        </div>
+        `;
+     }
+     else {
+        document.querySelector("#soSanh").innerHTML = `
+        <div>
+        <p>Số dương = Số âm</p>
+        </div>
+        `;
+     }
+}
